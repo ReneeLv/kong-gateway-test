@@ -1,0 +1,11 @@
+{
+  "service": {
+    "name": "test-service",
+    "url": "http://mockbin.org:80"
+  },
+  "route": {
+    "name": "test-route",
+    "paths": ["/api", "/v1"],
+    "service": "test-service"
+  }
+}

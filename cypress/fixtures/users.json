@@ -1,0 +1,6 @@
+{
+  "admin": {
+    "username": "kong_admin",
+    "password": "kongadmin"
+  }
+}

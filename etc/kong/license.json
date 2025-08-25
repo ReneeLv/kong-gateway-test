@@ -1,0 +1,23 @@
+// curl -i -X POST http://localhost:8001/licenses/ \
+//     --header "Accept: application/json" \
+//     --header "Content-Type: application/json" \
+//     --data '
+//     {
+//       "payload": "{\"license\":{\"payload\":{\"admin_seats\":\"1\",\"customer\":\"Example Company, Inc\",\"dataplanes\":\"1\",\"license_creation_date\":\"2017-07-20\",\"license_expiration_date\":\"2017-07-20\",\"license_key\":\"00141000017ODj3AAG_a1V41000004wT0OEAU\",\"product_subscription\":\"Konnect Enterprise\",\"support_plan\":\"None\"},\"signature\":\"6985968131533a967fcc721244a979948b1066967f1e9cd65dbd8eeabe060fc32d894a2945f5e4a03c1cd2198c74e058ac63d28b045c2f1fcec95877bd790e1b\",\"version\":\"1\"}}"
+//     }
+//     '
+
+//     HTTP/1.1 201 Created
+// Date: Mon, 25 Aug 2025 17:05:21 GMT
+// Content-Type: application/json; charset=utf-8
+// Connection: keep-alive
+// Access-Control-Allow-Origin: http://localhost:8002
+// X-Kong-Admin-Request-ID: 48118610c366084efb63ab7d8b1c5858
+// vary: Origin
+// Access-Control-Allow-Credentials: true
+// vary: Origin
+// Content-Length: 675
+// X-Kong-Admin-Latency: 14
+// Server: kong/3.11.0.2-enterprise-edition
+
+{"id":"74bc9965-20d0-476b-ac0a-e52830249406","created_at":1756141521,"updated_at":1756141521,"checksum":"f2d6072a63cda193a5a9af46f4924a4d7fd488ed5805dfcda47ce4ae9a107019","payload":"{\"license\":{\"payload\":{\"admin_seats\":\"1\",\"customer\":\"Example Company, Inc\",\"dataplanes\":\"1\",\"license_creation_date\":\"2017-07-20\",\"license_expiration_date\":\"2017-07-20\",\"license_key\":\"00141000017ODj3AAG_a1V41000004wT0OEAU\",\"product_subscription\":\"Konnect Enterprise\",\"support_plan\":\"None\"},\"signature\":\"6985968131533a967fcc721244a979948b1066967f1e9cd65dbd8eeabe060fc32d894a2945f5e4a03c1cd2198c74e058ac63d28b045c2f1fcec95877bd790e1b\",\"version\":\"1\"}}"}

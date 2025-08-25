@@ -1,0 +1,37 @@
+name: Kong UI Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Docker
+        run: |
+          docker network create kong-net
+
+      - name: Start Kong Environment
+        run: docker-compose up -d
+
+      - name: Wait for Kong initialization
+        run: sleep 30
+
+      - name: Run tests
+        run: |
+          npm install
+          npm run test:ci
+
+      - name: Stop Kong Environment
+        if: always()
+        run: docker-compose down
+
+      - name: Upload test artifacts
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots

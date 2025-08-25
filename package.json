@@ -1,0 +1,17 @@
+{
+  "name": "kong-ui-automation",
+  "version": "1.0.0",
+  "description": "Automated tests for Kong Gateway UI",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "start:env": "docker-compose up -d",
+    "stop:env": "docker-compose down",
+    "test": "npm run start:env && sleep 30 && npm run cy:run && npm run stop:env",
+    "test:ci": "npm run cy:run"
+  },
+  "devDependencies": {
+    "cypress": "^12.0.0",
+    "typescript": "^4.9.0"
+  }
+}
