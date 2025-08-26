@@ -6,8 +6,9 @@ class ServicesPage {
   }
 
   createService(url: string, name: string) {
-    
+    this.elements.urlInput().clear();
     this.elements.urlInput().type(url);
+    this.elements.nameInput().clear();
     this.elements.nameInput().type(name);
     this.elements.saveButton().click();
   }

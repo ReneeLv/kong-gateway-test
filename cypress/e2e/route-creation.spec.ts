@@ -5,6 +5,8 @@ describe('template spec', () => {
 
     cy.visit('http://localhost:8002/workspaces');
 
+    // Old method trigger by sidebar 'Route' button, need more dependencies added.
+
     /* ==== Generated with Cypress Studio ==== */
     // cy.get('.workspace-name').click();
     // cy.get('[data-testid="sidebar-item-routes"] > .sidebar-item-link > .sidebar-item-display > .sidebar-item-name-container > .sidebar-item-name').click();
