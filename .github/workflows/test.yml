@@ -1,18 +1,37 @@
-name: Kong UI Tests
+name: Kong Gateway UI Tests
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_DB: kong
+          POSTGRES_USER: kong
+          POSTGRES_PASSWORD: kong
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - name: Setup Docker
-        run: |
-          docker network create kong-net
+      - name: Install Dependencies
+        run: npm install || npm install --save-dev mochawesome mochawesome-report-generator
 
       - name: Start Kong Environment
         run: docker-compose up -d
@@ -20,18 +39,39 @@ jobs:
       - name: Wait for Kong initialization
         run: sleep 30
 
-      - name: Run tests
-        run: |
-          npm install
-          npm run test:ci
+      - name: Run Cypress Tests
+        uses: cypress-io/github-action@v5
+        with:
+          build: npm run build
+          start: npm start
+          wait-on: 'http://localhost:8002'
+          wait-on-timeout: 120
+          browser: chrome
+          record: false
+        env:
+          CYPRESS_BASE_URL: http://localhost:8002
+
+      - name: Generate Test Report
+        if: always()
+        run: ｜
+          npm run report:generate || echo "No report generation script found"
+
+      - name: Upload Test Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+
+      - name: Upload Test Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: |
+            cypress/reports
+            mochawesome-report
 
       - name: Stop Kong Environment
         if: always()
         run: docker-compose down
-
-      - name: Upload test artifacts
-        if: failure()
-        uses: actions/upload-artifact@v3
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots

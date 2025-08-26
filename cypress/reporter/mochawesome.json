@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-08-26T13:29:25.770Z",
+    "end": "2025-08-26T13:29:33.113Z",
+    "duration": 7343,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "45b2c9f2-e942-43ce-ab2b-d29f9c7ee616",
+      "title": "",
+      "fullFile": "cypress/e2e/service-creation-new.spec.ts",
+      "file": "cypress/e2e/service-creation-new.spec.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b5854dff-7968-472c-9a35-8a964c6edb6e",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 7326,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\n/* ==== Generated with Cypress Studio ==== */\ncy.visit('http://localhost:8002/workspaces');\n/* ==== End Cypress Studio ==== */\n/* ==== Generated with Cypress Studio ==== */\ncy.get('.workspace-name').click();\ncy.get('[data-testid=\"sidebar-item-gateway-services\"] > .sidebar-item-link > .sidebar-item-display > .sidebar-item-name-container > .sidebar-item-name').click();\n// cy.get('[data-testid=\"toolbar-add-gateway-service\"]').click();\ncy.get('[data-testid=\"empty-state-action\"]').click();\n// cy.get('#v-111').click();\ncy.get('[data-testid=\"gateway-service-url-input\"]').click();\ncy.get('[data-testid=\"gateway-service-url-input\"]').type('http://httpbin.konghq.com');\n// cy.get('[data-testid=\"gateway-service-name-input\"]').click();\n// cy.get('[data-testid=\"gateway-service-name-input\"]').type('new-service-20250826085538705');\ncy.get('[data-testid=\"service-create-form-submit\"]').click();\n/* ==== End Cypress Studio ==== */",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-testid=\"empty-state-action\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-testid=\"empty-state-action\"]`, but never found it.\n    at Context.eval (webpack://kong-ui-automation/./cypress/e2e/service-creation-new.spec.ts:14:7)",
+                "diff": null
+              },
+              "uuid": "91884432-f9ba-43dd-80a3-66a53c902ce9",
+              "parentUUID": "b5854dff-7968-472c-9a35-8a964c6edb6e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "91884432-f9ba-43dd-80a3-66a53c902ce9"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 7326,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reporter"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

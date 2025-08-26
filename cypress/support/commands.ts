@@ -3,7 +3,9 @@
 declare global {
   namespace Cypress {
     interface Chainable {
-      createService(name: string, url: string): Chainable<void>;
+      createService(url: string, name: string): Chainable<void>;
+
+      createRoute(name: string, service: string, tag: string, paths: string[]): Chainable<void>;
 
       deleteServiceViaApi(name: string): Chainable<void>;
       

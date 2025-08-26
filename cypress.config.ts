@@ -14,5 +14,9 @@ export default defineConfig({
     screenshotOnRunFailure: true,
     experimentalStudio: true,
     trashAssetsBeforeRuns: true,
-  },
+    reporter: 'mochawesome',
+    reporterOptions: {
+        reportDir: 'cypress/reporter'
+    }
+  }
 });
