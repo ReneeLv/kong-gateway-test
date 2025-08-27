@@ -85,3 +85,6 @@ This project provides automated tests for Kong Gateway UI (Kong Manager) using C
 
 4.  **Dependency Management**
     *   Formalize test dependencies (e.g., using `before` hooks) to ensure a service exists before creating routes that depend on it.
+
+5.  **Environment Isolation**
+    *   use annotation to isolate different test environment, e.g. @smoke, @regression, @integration.    
