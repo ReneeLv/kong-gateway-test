@@ -46,7 +46,7 @@ jobs:
         run: npm install || npm install --save-dev mochawesome mochawesome-report-generator
       
       - name: Run Cypress Tests
-        run: npx cypress run --reporter mochawesome --browser chrome --spec "../../cypress/e2e/service-creation.spec.ts,../../cypress/e2e/route-creation.spec.ts"
+        run: npx cypress run --reporter mochawesome --browser chrome --spec "cypress/e2e/service-creation.spec.ts, cypress/e2e/route-creation.spec.ts"
         env:
           CYPRESS_BASE_URL: http://localhost:8002
 
