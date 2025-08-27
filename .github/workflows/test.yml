@@ -37,7 +37,7 @@ jobs:
           docker-compose --version
 
       - name: Start Kong Environment
-        run: docker-compose -f ../../docker-compose.yml up -d
+        run: docker-compose -f docker-compose.yml up -d
 
       - name: Wait for Kong initialization
         run: sleep 30
