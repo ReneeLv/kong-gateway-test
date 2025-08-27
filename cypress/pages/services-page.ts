@@ -21,6 +21,9 @@ class ServicesPage {
 
   createService(url: string, name: string) {
     this.elements.createButton().click();
+
+    cy.wait(3000)
+
     this.elements.urlInput().clear();
     this.elements.urlInput().type(url);
     this.elements.nameInput().clear();

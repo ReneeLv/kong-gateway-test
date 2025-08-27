@@ -38,6 +38,8 @@ class RoutesPage {
     this.elements.selectRoute().click();
     this.elements.createButton().click();
 
+    cy.wait(3000)
+
     this.elements.nameInput().type(name);
     this.elements.tagsInput().type(tags.join(','));
     this.elements.pathInput().type(path); 
