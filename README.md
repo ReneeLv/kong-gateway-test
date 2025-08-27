@@ -18,6 +18,8 @@ This project provides automated tests for Kong Gateway UI (Kong Manager) using C
     *   Utilize the functions from the Page Objects.
 
 3.  **Element Selection**
+    *   Encapusolation `create-route` and `create-service` action in `path` directory. 
+    
     *   Use **Cypress Studio** and **Browser DevTools** to identify and capture UI elements.
 
 4.  **Assertion Strategy**
