@@ -42,8 +42,8 @@ jobs:
       - name: Set up Docker
         uses: docker/setup-buildx-action@v4
       
-      - name: Set up Docker Compose
-        uses: docker/setup-compose-action@v4
+      # - name: Set up Docker Compose
+      #   uses: docker/setup-compose-action@v4
 
       - name: Start Kong Environment
         run: docker-compose up -d
