@@ -31,16 +31,19 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
 
       - name: Set up Docker
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
       
       - name: Set up Docker Compose
-        uses: docker/setup-compose-action@v3
+        uses: docker/setup-compose-action@v4
 
       - name: Start Kong Environment
         run: docker-compose up -d
@@ -60,7 +63,7 @@ jobs:
         run: npx marge cypress/reports/mocha/merged-report.json --reportDir cypress/reports/html --inline
 
       - name: Upload Cypress test report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always() 
         with:
           name: cypress-test-report
