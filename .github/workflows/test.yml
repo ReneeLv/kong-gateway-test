@@ -29,9 +29,18 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
 
-      - name: Install Dependencies
-        run: npm install || npm install --save-dev mochawesome mochawesome-report-generator
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Set up Docker Compose
+        uses: docker/setup-compose-action@v3
 
       - name: Start Kong Environment
         run: docker-compose up -d
@@ -39,38 +48,27 @@ jobs:
       - name: Wait for Kong initialization
         run: sleep 30
 
+      - name: Install Dependencies
+        run: npm install || npm install --save-dev mochawesome mochawesome-report-generator
+      
       - name: Run Cypress Tests
-        uses: cypress-io/github-action@v5
-        with:
-          build: npm run build
-          start: npm start
-          wait-on: 'http://localhost:8002'
-          wait-on-timeout: 120
-          browser: chrome
-          record: false
+        run: npx cypress run --reporter mochawesome --browser chrome
         env:
           CYPRESS_BASE_URL: http://localhost:8002
 
-      - name: Generate Test Report
-        if: always()
-        run: ｜
-          npm run report:generate || echo "No report generation script found"
+      - name: Generate HTML Test report
+        run: npx marge cypress/reports/mocha/merged-report.json --reportDir cypress/reports/html --inline
 
-      - name: Upload Test Artifacts
-        if: always()
-        uses: actions/upload-artifact@v4
+      - name: Upload Cypress test report
+        uses: actions/upload-artifact@v3
+        if: always() 
         with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-
-      - name: Upload Test Reports
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-reports
+          name: cypress-test-report
           path: |
-            cypress/reports
-            mochawesome-report
+            cypress/reports/ci-action/html
+            cypress/reports/ci-action/screenshots
+            cypress/reports/ci-action/videos
+          retention-days: 7
 
       - name: Stop Kong Environment
         if: always()

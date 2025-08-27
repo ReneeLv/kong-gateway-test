@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-08-27T04:27:32.385Z",
-    "end": "2025-08-27T04:27:34.265Z",
-    "duration": 1880,
+    "start": "2025-08-27T05:09:00.307Z",
+    "end": "2025-08-27T05:09:02.186Z",
+    "duration": 1879,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "7bc73432-0f42-401f-9525-e6da3fec8bee",
+      "uuid": "616627ed-7ee3-4bc2-baab-e793d388d0d0",
       "title": "",
       "fullFile": "cypress/e2e/service-creation.spec.ts",
       "file": "cypress/e2e/service-creation.spec.ts",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "13c43e6a-0bf5-4904-bc56-402f09d3a232",
+          "uuid": "8c5a47f2-3394-40a1-8635-6b6164d27121",
           "title": "template spec",
           "fullFile": "",
           "file": "",
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.visit('http://localhost:8002/workspaces');",
               "err": {},
-              "uuid": "31fb641f-1d31-46f1-9ab2-9b4e3b27eb56",
-              "parentUUID": "13c43e6a-0bf5-4904-bc56-402f09d3a232",
+              "uuid": "195abf4f-8ef5-4483-9cae-86387a1fc3cf",
+              "parentUUID": "8c5a47f2-3394-40a1-8635-6b6164d27121",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "service",
               "fullTitle": "template spec service",
               "timedOut": null,
-              "duration": 1479,
+              "duration": 1478,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "cy.get('.workspace-name').click();\ncy.get('[data-testid=\"sidebar-item-gateway-services\"] > .sidebar-item-link > .sidebar-item-display > .sidebar-item-name-container > .sidebar-item-name').click();\ncy.get('body').then(function ($body) {\n    if ($body.find('[data-testid=\"empty-state-action\"]').length) {\n        cy.get('[data-testid=\"empty-state-action\"]').click();\n    }\n    else if ($body.find('[data-testid=\"toolbar-add-gateway-service\"]').length) {\n        cy.get('[data-testid=\"toolbar-add-gateway-service\"]').click();\n    }\n    else {\n        throw new Error('No button found');\n    }\n});\nservices_page_1.default.createService('http://httpbin.konghq.com', 'new-service-1');",
               "err": {},
-              "uuid": "c292ab87-a1b9-48f3-860a-2935309de4a9",
-              "parentUUID": "13c43e6a-0bf5-4904-bc56-402f09d3a232",
+              "uuid": "4f3d2ed0-7d02-4640-9896-a0c04d1df6ef",
+              "parentUUID": "8c5a47f2-3394-40a1-8635-6b6164d27121",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "31fb641f-1d31-46f1-9ab2-9b4e3b27eb56",
-            "c292ab87-a1b9-48f3-860a-2935309de4a9"
+            "195abf4f-8ef5-4483-9cae-86387a1fc3cf",
+            "4f3d2ed0-7d02-4640-9896-a0c04d1df6ef"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1866,
+          "duration": 1865,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
